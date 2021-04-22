@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<button onclick="getData()">请求服务器</button>
+<script>
+    // let url = 'http://127.0.0.1:9005?username=tom&pwd=90808';
+    let url = 'http://127.0.0.1:9008';
+
+    function getData() {
+        let xhr = new XMLHttpRequest();
+        xhr.open('post', url);
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);;
+            }
+        };
+        // xhr.send(null);
+        // xhr.send("username=huahua&pwd=9090");
+        xhr.send("username=abc&age=32&addr=newyork");
+    }
+</script>
+</body>
+
+</html>
